@@ -4,14 +4,21 @@ import "fmt"
 
 func heapSort(arr []int) {
 	n := len(arr)
+	
+	//loop to make the array with max heap properties
 	for i := (len(arr) / 2) - 1; i >= 0; i-- {
 		heapify(arr, n, i)
 	}
+	
+	//loop to make the array sorted
 	for i := n - 1; i >= 0; i-- {
 		arr[0], arr[i] = arr[i], arr[0]
 		heapify(arr, i, 0)
 	}
 }
+
+//heapify function to maintain the heap properties
+
 func heapify(arr []int, n, i int) {
 	largest := i
 	lc := lchild(i)
